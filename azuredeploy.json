@@ -5,7 +5,7 @@
         
     },
     "variables": {
-        "templatebaseUrl": "https://raw.githubusercontent.com/prathap9000/ARM-Template-devops/master/"
+        "templatebaseUrl": "__path__"
     },
     "resources": [
         {
@@ -14,11 +14,13 @@
             "name": "linkedTemplate",
             "properties": {
                 "mode": "Incremental",
-                "TemplateLink": {                   
-                    "relativePath": "./WebApp/webapptemplate.json"                   
+                "templateLink": {                   
+                    "uri": "[concat( variables('templatebaseUrl'),'WebApp/webapptemplate.json' )]",
+                    "contentVersion": "1.0.0.0"              
                 },
-                "ParametersLink": {                  
-                    "relativePath": "./WebApp/webapptemplate.parameters.json"
+                "parametersLink": {                  
+                    "uri": "[concat( variables('templatebaseUrl'),'WebApp/webapptemplate.parameters.json' )]",
+                    "contentVersion": "1.0.0.0"
                 }
             }
         }
