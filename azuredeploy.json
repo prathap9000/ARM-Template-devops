@@ -1,5 +1,5 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         
@@ -10,18 +10,15 @@
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-10-01",
+            "apiVersion": "2020-06-01",
             "name": "linkedTemplate",
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {                   
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'WebApp/webapptemplate.json')]",
-                    "contentVersion": "1.0.0.0"                 
+                    "relativePath": "./WebApp/webapptemplate.json"                   
                 },
-                "parametersLink": {   
-                    "uri": "[uri(deployment().properties.templateLink.uri, 'WebApp/webapptemplate.parameters.json')]",
-                    "contentVersion": "1.0.0.0"                   
-                 
+                "parametersLink": {                  
+                    "relativePath": "./WebApp/webapptemplate.parameters.json"
                 }
             }
         }
