@@ -15,10 +15,13 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {                   
-                    "relativePath": "WebApp/webapptemplate.json"                   
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'WebApp/webapptemplate.json')]",
+                    "contentVersion": "1.0.0.0"                 
                 },
-                "parametersLink": {                  
-                    "relativePath": "WebApp/webapptemplate.parameters.json"
+                "parametersLink": {   
+                    "uri": "[uri(deployment().properties.templateLink.uri, 'WebApp/webapptemplate.parameters.json')]",
+                    "contentVersion": "1.0.0.0"                   
+                 
                 }
             }
         }
