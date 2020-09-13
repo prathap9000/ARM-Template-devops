@@ -14,10 +14,10 @@
             "name": "linkedTemplate",
             "properties": {
                 "mode": "Incremental",
-                "templateLink": {                   
+                "TemplateLink": {                   
                     "relativePath": "./WebApp/webapptemplate.json"                   
                 },
-                "parametersLink": {                  
+                "ParametersLink": {                  
                     "relativePath": "./WebApp/webapptemplate.parameters.json"
                 }
             }
