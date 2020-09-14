@@ -13,7 +13,7 @@
       {
         "name": "sql-template",
         "templateUrl": "[concat(variables('templatebaseUrl'), 'WebApp1/webapptemplate.json')]",
-        "parameterUrl": "[concat(variables('templatebaseUrl'), 'WebApp/webapptemplate.parameters.json')]"
+        "parameterUrl": "[concat(variables('templatebaseUrl'), 'WebApp1/webapptemplate.parameters.json')]"
       }
     ]
   },
