@@ -5,7 +5,7 @@
         
     },
     "variables": {
-        "templatebaseUrl": "__path__"
+        "templatebaseUrl": "https://raw.githubusercontent.com/prathap9000/ARM-Template-devops/master/"
     },
     "resources": [
         {
@@ -15,11 +15,11 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {                   
-                    "uri": "[concat( variables('templatebaseUrl'),'WebApp\\webapptemplate.json' )]",
+                    "uri": "[concat( variables('templatebaseUrl'),'WebApp/webapptemplate.json' )]",
                     "contentVersion": "1.0.0.0"              
                 },
                 "parametersLink": {                  
-                    "uri": "[concat( variables('templatebaseUrl'),'WebApp\\webapptemplate.parameters.json' )]",
+                    "uri": "[concat( variables('templatebaseUrl'),'WebApp/webapptemplate.parameters.json' )]",
                     "contentVersion": "1.0.0.0"
                 }
             }

@@ -10,9 +10,14 @@
         },
         "webappprefix": {
             "value": "webapp"
-        },        
+        },
         "webappname1": {
-            "value": "__webappname1__"
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/03f2b4b6-11d3-4510-851c-2a038b3c2e92/resourceGroups/Paid-Sub-RG/providers/Microsoft.KeyVault/vaults/prathapkeyvault"
+                },
+                "secretName": "securestring"
+            }
         }
     }
 }

@@ -15,8 +15,10 @@
             "type": "String"
         },
         "webappname1": {
-            "defaultValue": "webapp1",
-            "type": "String"
+            "type": "securestring",
+            "metadata": {
+                "description": "Password for the Virtual Machine."
+            }
         },
         "skuName": {
             "type": "string",
