@@ -21,7 +21,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2015-01-01",
-      "name": "linkedTemplate",
+      "name": "[concat('nestedTemplate-', variables('linkedTemplates')[copyIndex()].name)]",
       "copy": {
         "name": "templatesCopy",
         "count": "[length(variables('linkedTemplates'))]"
