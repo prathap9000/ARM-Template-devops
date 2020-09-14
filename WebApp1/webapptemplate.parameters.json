@@ -14,7 +14,7 @@
         "webappname1": {
             "reference": {
                 "keyVault": {
-                    "id": "/subscriptions/03f2b4b6-11d3-4510-851c-2a038b3c2e92/resourceGroups/Paid-Sub-RG/providers/Microsoft.KeyVault/vaults/prathapkeyvault"
+                    "id": "/subscriptions/03f2b4b6-11d3-4510-851c-2a038b3c2e92/resourceGroups/key-vault-rg/providers/Microsoft.KeyVault/vaults/prathapkey-vault"
                 },
                 "secretName": "securestring"
             }
