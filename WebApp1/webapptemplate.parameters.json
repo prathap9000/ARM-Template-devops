@@ -1,0 +1,23 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "aspname1": {
+            "value": "windows1"
+        },
+        "aspprefix": {
+            "value": "asp1"
+        },
+        "webappprefix": {
+            "value": "webapp1"
+        },
+        "webappname1": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/03f2b4b6-11d3-4510-851c-2a038b3c2e92/resourceGroups/Paid-Sub-RG/providers/Microsoft.KeyVault/vaults/prathapkeyvault"
+                },
+                "secretName": "securestring"
+            }
+        }
+    }
+}

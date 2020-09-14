@@ -1,28 +1,42 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        
-    },
-    "variables": {
-        "templatebaseUrl": "https://raw.githubusercontent.com/prathap9000/ARM-Template-devops/master/"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "linkedTemplate",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {                   
-                    "uri": "[concat( variables('templatebaseUrl'),'WebApp/webapptemplate.json' )]",
-                    "contentVersion": "1.0.0.0"              
-                },
-                "parametersLink": {                  
-                    "uri": "[concat( variables('templatebaseUrl'),'WebApp/webapptemplate.parameters.json' )]",
-                    "contentVersion": "1.0.0.0"
-                }
-            }
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "templatebaseUrl": "https://raw.githubusercontent.com/prathap9000/ARM-Template-devops/master/",
+    "linkedTemplates": [
+      {
+        "name": "web-template",
+        "templateUrl": "[concat(variables('templatebaseUrl'), 'WebApp/webapptemplate.json')]",
+        "parameterUrl": "[concat(variables('templatebaseUrl'), 'WebApp/webapptemplate.parameters.json')]"
+      },
+      {
+        "name": "sql-template",
+        "templateUrl": "[concat(variables('templatebaseUrl'), 'WebApp1/webapptemplate.json')]",
+        "parameterUrl": "[concat(variables('templatebaseUrl'), 'WebApp/webapptemplate.parameters.json')]"
+      }
     ]
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
+      "name": "linkedTemplate",
+      "copy": {
+        "name": "templatesCopy",
+        "count": "[length(variables('linkedTemplates'))]"
+      },
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('linkedTemplates')[copyIndex()].templateUrl]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parametersLink": {
+          "uri": "[variables('linkedTemplates')[copyIndex()].parameterUrl]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    }
+  ]
 }
